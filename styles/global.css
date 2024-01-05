@@ -28,6 +28,7 @@ body {
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
 .search {
@@ -157,9 +158,9 @@ body {
 }
 
 .info .item.humidity::before {
-    background-image: url(/images/svg/humidity.svg);
+    background-image: url(../images/svg/humidity.svg);
 }
 
 .info .item.wind::before {
-    background-image: url(/images/svg/wind.svg);
+    background-image: url(../images/svg/wind.svg);
 }

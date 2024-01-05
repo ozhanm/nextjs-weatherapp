@@ -1,5 +1,5 @@
 # Demo
-https://nextjs-weatherapp.ozhanmengucek.com
+https://nextjs.ozhanmengucek.com/weatherapp
 
 ## Getting Started
 

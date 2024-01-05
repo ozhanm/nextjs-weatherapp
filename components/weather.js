@@ -8,6 +8,8 @@ export default function WeatherApp() {
     const [location, setLocation] = useState('');
     const [classs, setClasss] = useState('weather');
 
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ? process.env.NEXT_PUBLIC_BASE_URL : '';
+
     const fetchData = async (e) => {
         e.preventDefault();
 
@@ -29,7 +31,7 @@ export default function WeatherApp() {
 
                     // new data
                     const newdata = {
-                        "image": img,
+                        "image": `${baseUrl}/images/animated/${img}.svg`,
                         "title": result.weather[0].main,
                         "desc": result.weather[0].description.toUpperCase(),
                         "degree": result.main.temp.toFixed(0),
@@ -57,10 +59,10 @@ export default function WeatherApp() {
         <div className="container">
             <div className="search">
                 <form onSubmit={fetchData}>
-                    <Image src="/images/svg/location.svg" alt="Location" width={25} height={25} />
+                    <Image src={`${baseUrl}/images/svg/location.svg`} alt="Location" width={25} height={25} />
                     <input type="text" placeholder='Enter your location' onChange={(e) => setLocation(e.target.value)} />
                     <button className="btn" onSubmit={fetchData}>
-                        <Image src="/images/svg/search.svg" alt="Search" width={20} height={20} />
+                        <Image src={`${baseUrl}/images/svg/search.svg`} alt="Search" width={20} height={20} />
                     </button>
                 </form>
             </div>
@@ -68,7 +70,7 @@ export default function WeatherApp() {
                 <div className={classs}>
                     <div className="image">
                         {data.image && (
-                            <Image src={`/images/animated/${data.image}.svg`} alt={data.title} width={250} height={250} />
+                            <Image src={data.image} alt={data.title} width={250} height={250} />
                         )}
                     </div>
                     <div className="degree">
